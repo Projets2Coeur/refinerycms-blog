@@ -69,6 +69,8 @@ module Refinery
           @posts = Post.live.by_year(archive_date).page(params[:page])
         end
         respond_with (@posts)
+      rescue
+        redirect_to refinery.blog_archive_posts_url
       end
 
       def tagged
